@@ -48,10 +48,34 @@ def encryption():
     print("done!")
 
 def decryption():
+    plain_text = ''
     #get the encrypted text
     encrypted_text = input("What is your encrypted text?: ")
     #get the randomized encryption alphabet
     key = input("What is the encryption alphabet?\n\n")
     listed_key = list(key)
+
+    for letter in encrypted_text:
+        index = listed_key.index(letter)
+        plain_text += chars[index]
+
+    print(f"decrypted message : {plain_text}")
     #decryption and print it
     print("done!") 
+
+
+options = input("Hello, welcome to encryption and decryption!\n\nWhat will you do today? (encrypt/decrypt)\n")
+
+while True:
+    if options == "encrypt":
+        encryption()
+        break
+    elif options == "decrypt":
+        decryption()
+        break
+    elif options == "quit":
+        print("Thank you for using cryption!")
+        break
+    else:
+        print("Please type and choose between encrypt or decrypt.")
+        continue
