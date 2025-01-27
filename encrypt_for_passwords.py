@@ -13,32 +13,41 @@ key = chars.copy()
 
 random.shuffle(key)
 
-#encryption
-while True:
-    plain_text = input("Kindly put what you want to encrypt: ")
-    encrypted_text = ""
+def encryption():
 
-    #ask for confirmation
-    ask = input("\nAre you sure that is your text for encryption? (y/n)\n")
-    if ask != "y":
-        continue
-    elif ask == "y":
-        break
+    #encryption
+    while True:
+        plain_text = input("Kindly put what you want to encrypt: ")
+        encrypted_text = ""
 
-for letter in plain_text:
-    index = chars.index(letter)
-    encrypted_text += key[index]
+        #ask for confirmation
+        ask = input("\nAre you sure that is your text for encryption? (y/n)\n")
+        if ask != "y":
+            continue
+        elif ask == "y":
+            break
 
-#print the encrypted word and the randomized characters
+    for letter in plain_text:
+        index = chars.index(letter)
+        encrypted_text += key[index]
 
-print(f"original message : {plain_text}")
-print(f"encrypted message : {encrypted_text}")
+    #print the encrypted word and the randomized characters
 
-#write the date encrypted word, and the randomized characters in a .txt file document for safekeep 
+    print(f"original message : {plain_text}")
+    print(f"encrypted message : {encrypted_text}")
 
-name_for_encrypted = input("Please give a name for your encrypted text:\n")
+    #write the date encrypted word, and the randomized characters in a .txt file document for safekeep 
 
-with open(".\encryption_storage.txt", "a") as file_handle:
-    file_handle.write(f"{name_for_encrypted}, {current_datetime}\n\nencryption alphabet: {key}\n\n original message: {plain_text}\nencrypted message: {encrypted_text}\n")
+    name_for_encrypted = input("Please give a name for your encrypted text:\n")
 
-print("done!")
+    with open(".\encryption_storage.txt", "a") as file_handle:
+        file_handle.write(f"{name_for_encrypted}, {current_datetime}\n\nencryption alphabet: {key}\n\noriginal message: {plain_text}\nencrypted message: {encrypted_text}\n")
+
+    print("done!")
+
+def decryption():
+    #get the encrypted text
+    encrypted_text = input("What is your encrypted text?: ")
+    #get the randomized encryption alphabet
+    #decryption and print it
+    print("done!")
