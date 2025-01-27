@@ -40,8 +40,10 @@ def encryption():
 
     name_for_encrypted = input("Please give a name for your encrypted text:\n")
 
+    squish_key = ''.join(key)
+
     with open(".\encryption_storage.txt", "a") as file_handle:
-        file_handle.write(f"{name_for_encrypted}, {current_datetime}\n\nencryption alphabet: {key}\n\noriginal message: {plain_text}\nencrypted message: {encrypted_text}\n")
+        file_handle.write(f"{name_for_encrypted}, {current_datetime}\n\nencryption alphabet: {squish_key}\n\noriginal message: {plain_text}\nencrypted message: {encrypted_text}\n")
 
     print("done!")
 
@@ -49,5 +51,7 @@ def decryption():
     #get the encrypted text
     encrypted_text = input("What is your encrypted text?: ")
     #get the randomized encryption alphabet
+    key = input("What is the encryption alphabet?\n\n")
+    listed_key = list(key)
     #decryption and print it
-    print("done!")
+    print("done!") 
