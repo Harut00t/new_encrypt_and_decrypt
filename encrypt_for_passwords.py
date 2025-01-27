@@ -2,6 +2,8 @@ import random
 import string
 
 #variable characters to categorize the characters
+chars = " " + string.punctuation + string.digits + string.ascii_letters
+chars = list(chars)
 
 #encryption
 
