@@ -1,5 +1,10 @@
 import random
 import string
+from datetime import datetime
+
+#date and time
+current_datetime = datetime.now()
+print("Current date and time:", current_datetime)
 
 #variable characters to categorize the characters
 chars = " " + string.punctuation + string.digits + string.ascii_letters
@@ -23,11 +28,17 @@ while True:
 for letter in plain_text:
     index = chars.index(letter)
     encrypted_text += key[index]
-    
-print(f"original message : {plain_text}")
-print(f"encrypted message : {encrypted_text}")
-
 
 #print the encrypted word and the randomized characters
 
+print(f"original message : {plain_text}")
+print(f"encrypted message : {encrypted_text}")
+
 #write the date encrypted word, and the randomized characters in a .txt file document for safekeep 
+
+name_for_encrypted = input("Please give a name for your encrypted text:\n")
+
+with open(".\encryption_storage.txt", "a") as file_handle:
+    file_handle.write(f"{name_for_encrypted}, {current_datetime}\n\nencryption alphabet: {key}\n\n original message: {plain_text}\nencrypted message: {encrypted_text}\n")
+
+print("done!")
