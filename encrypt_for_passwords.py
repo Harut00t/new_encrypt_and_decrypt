@@ -77,5 +77,5 @@ while True:
         print("Thank you for using cryption!")
         break
     else:
-        print("Please type and choose between encrypt or decrypt.")
-        continue
+        print("Thank you for using the program!")
+        break
